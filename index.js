@@ -27,26 +27,17 @@ app.use((req, res, next) => {
   next();
 });
 
-app. get("/", (req, res) => {
-  res.send("hello")
+app.get("/", (req, res) => {
+  res.render("hello")
 })
 
-app.get("/sign_in", (req, res) => {
-  res.render("sign_in")
-})
+const signInRouts = require("./routes/sign_in_out");
 
-const COOKIE_MAX_AGE = 1000 * 60 * 2; //2 minutes
-app.post("/sign_in", (req, res) => {
-  // res.send(req.body);
-  const username = req.body.username;
-  res.cookie('username', username, { maxAge: COOKIE_MAX_AGE });
-  res.redirect("/");
-});
+app.use("/", signInRouts);
 
-app.post("/sign_out", (req, res /*, next */) => {
-  res.clearCookie("username");
-  res.redirect("/");
-});
+const clucksRoutes = require("./routes/clucks");
+
+app.use("/clucks", clucksRoutes);
 
 const PORT = 5100
 app.listen(PORT, () => {
