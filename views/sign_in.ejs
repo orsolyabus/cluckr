@@ -1,14 +1,16 @@
 <%- include("./partials/header") %>
 
-    <main class="m-4">
-       <h1>Sigh in here</h1>
+    
+<div class="card" >
+  <div class="card-body">
+    <h3 class="card-title">Sigh in here</h3>
 
-        <form action ="/sign_in" method="POST">
-            <div class="form-group">
-              <label for="exampleInputPassword1">Username</label>
-              <input type="text" class="form-control" placeholder="username" name="username">
-            </div>
-            <button type="submit" class="btn btn-info float-right">Submit</button>
-        </form>
-
+    <form action ="/sign_in" method="POST" class="card-text">
+        <div class="form-group">
+            <label for="exampleInputPassword1">Username</label>
+            <input type="text" class="form-control" placeholder="username" name="username">
+        </div>
+        <button type="submit" class="btn btn-info float-right">Submit</button>
+    </form>
+  </div>
 <%- include("./partials/footer") %>

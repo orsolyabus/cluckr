@@ -24,6 +24,7 @@
     "knex": "^0.15.2",
     "method-override": "^3.0.0",
     "morgan": "^1.9.1",
+    "node-time-ago": "^1.0.0",
     "pg": "^7.5.0"
   },
   "devDependencies": {

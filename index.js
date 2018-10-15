@@ -3,6 +3,7 @@ const express = require("express")
 const morgan = require("morgan")
 const bodyParser = require("body-parser")
 const cookieParser = require("cookie-parser");
+const knex = require("./db/client");
 
 const app = express();
 
@@ -28,7 +29,7 @@ app.use((req, res, next) => {
 });
 
 app.get("/", (req, res) => {
-  res.render("hello")
+  res.redirect("/clucks")
 })
 
 const signInRouts = require("./routes/sign_in_out");
@@ -37,7 +38,7 @@ app.use("/", signInRouts);
 
 const clucksRoutes = require("./routes/clucks");
 
-app.use("/clucks", clucksRoutes);
+app.use("/", clucksRoutes);
 
 const PORT = 5100
 app.listen(PORT, () => {

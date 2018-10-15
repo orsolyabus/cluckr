@@ -1,0 +1,23 @@
+
+<%- include("./partials/header") %>
+
+<% for (let cluck of clucks){ %>
+
+  <div class="card container" style="">
+    <div class="row">
+      <div class="col-2 ">
+        <img class="img-thumbnail" src="rooster.jpg" alt="rooster avatar">
+      </div>
+      <div class="col">
+        <h5 class="card-title"><%= cluck.username%> • <%= timeAgo(cluck.createdAt)%></h5>
+        <p><%= cluck.content %></p>
+        <% if (cluck.image_url){ %>
+        <img src="<%= clucks.image_url%>" alt="some image">
+        <% } %>
+      </div>
+    </div>
+  </div>
+
+<% } %>
+
+<%- include("./partials/footer") %>
