@@ -1,0 +1,38 @@
+
+<%- include("./partials/header") %>
+
+<div class="container-fluid row">
+  <div class="col-3 d-none d-md-block">
+    <div class="card p-2">
+      <h5 class="card-title">Trending Clucks</h5>
+      <ul style="list-style: none">
+        <% for (let tag of tags){ %>
+          <li> <%=tag.tag%> • <%=tag.count%> </li>
+        <% } %>
+      </ul>
+    </div>
+  </div>
+
+  <div class="col">
+    <% for (let cluck of clucks){ %>
+      <div class="card container mb-2 pt-2" style="">
+        <div class="row">
+          <div class="col-2 ">
+            <img class="img-thumbnail mb-2" src="rooster.jpg" alt="rooster avatar">
+          </div>
+
+          <div class="col">
+            <h5 class="card-title"><%= cluck.username%> • <%= timeAgo(cluck.createdAt)%></h5>
+            <p><%= cluck.content %></p>
+            <% if (cluck.image_url){ %>
+              <img src="<%= clucks.image_url%>" alt="some image">
+            <% } %>
+          </div>
+        </div>
+      </div>
+    <% } %>
+  </div>  
+</div>
+
+
+<%- include("./partials/footer") %>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Cluckr</title>
+    <link href="stylesheets/bootstrap.min.css" rel="stylesheet">
+    <script src="/scripts/jquery-3.3.1.slim.min.js"></script>
+    <script src="/scripts/popper.min.js"></script>
+    <script src="/scripts/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" href="/">
+        <img src="chicken.png" width="80" alt="">
+        </a>
+        
+        <a class="btn btn-info ml-auto mr-2" href="/new">Cluck!</a>
+
+        <% if (username) { %>
+            <span class="navbar-text text-dark ml-2 mr-2">
+            <%= username %>
+            </span>
+            <form action="/sign_out" method="POST" class="form-inline">
+            <button class="btn btn-info">Sign Out</button>
+            </form>
+            
+          <% } else { %>
+          <a class="btn btn-info " href="/sign_in">
+            Sign in
+          </a>
+          <% } %>
+        
+      </nav>
+    </header>
+
+  <main class="m-4">
